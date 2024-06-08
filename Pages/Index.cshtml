@@ -1,0 +1,255 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <title>خيركم</title>
+
+    
+    <link href="~/css/theme.css" rel="stylesheet" />
+    <style>
+        .circle-background {
+            position: relative;
+            background: linear-gradient(to bottom right, #b8434310 , #f8f5f5 ); /* Orange gradient from top left to bottom right */
+        }
+
+        .semi-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            z-index: -1; /* Ensure the semi-circle is behind other content */
+            clip-path: polygon(0% 100%, 100% 100%, 100% 70%, 50% 0%, 0% 70%); /* Create a semi-circle shape using clip-path */
+        }
+
+        body a:hover {
+            color: #000;
+        }
+
+        .nav-link a:hover {
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top" dir="rtl">
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top" data-navbar-on-scroll="data-navbar-on-scroll">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="~/img/logok.png" height="90" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#info">تعريف</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#asso">الجمعيات</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#post">المنشورات</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#chatbot">الدردشة الآ لية</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex ms-lg-4">
+                        <!-- style=" border-color: #ec7311; color: #ec7311 ;" -->
+                        <a class="btn btn-secondary-outline" asp-page="/Association/Login" >تسجيل الدخول</a>
+                        <a class="btn btn-warning" asp-page="/Association/Sign_up" style="margin-right: 10px; background-color: #b84343; border-color: #b84343;">التسجيل</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <section class="pt-7 circle-background">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-md-start text-center py-6">
+                        <h1 class="mb-4 fs-9 fw-bold">تطبيق خيركم</h1>
+                        <p class="mb-6 lead text-secondary">تجمع الجمعيات الخيرية الموريتانية <br class="d-none d-xl-block"> <br class="d-none d-xl-block"> </p>
+                        <div class="text-center text-md-start">
+                            <!-- Your buttons or content here -->
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <img class="pt-7 pt-md-0 img-fluid" src="~/img/logok.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="semi-circle"></div> <!-- Add the semi-circle element -->
+        </section>
+        
+        <section class="pt-5 pt-md-9 mb-6" id="info" dir="rtl">
+            <div class="container">
+                <h1 class="fs-9 fw-bold mb-4 text-center">يتيح لكم تطبيق خيركم :<br class="d-none d-xl-block" /> </h1>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6 mb-2"> <img class="mb-3 ms-n3" src="~/img/category/icon1.png" width="75" alt="Feature" />
+                        <h4 class="mb-3">تسجيل الجمعيات</h4>
+                        <p class="mb-0 fw-medium text-secondary">يتيح التطبيق للمستخدمين إنشاء حسابات لجمعياتهم وإدارتها، مما يتيح لهم إضافة معلومات حول الجمعية، مثل الاتصال واللأنشطة</p>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 mb-2"> <img class="mb-3 ms-n3" src="~/img/category/icon3.png" width="75" alt="Feature" />
+                        <h4 class="mb-3">المنشورات</h4>
+                        <p class="mb-0 fw-medium text-secondary">يمكن للجمعيات نشر منشورات حول أنشطتها ومشاريعها الخيرية عبر التطبيق، مما يسهل على الأفراد الانضمام إليها والمساهمة فيها.  </p>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 mb-2"> <img class="mb-3 ms-n3" src="~/img/category/icon2.png" width="75" alt="Feature" />
+                        <h4 class="mb-3">البحث والاكتشاف</h4>
+                        <p class="mb-0 fw-medium text-secondary">يوفر التطبيق واجهة بحث شاملة وسهلة الاستخدام، تمكّن المستخدمين من العثور على الجمعيات المسجلة</p>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 mb-2"> <img class="mb-3 ms-n3" src="~/img/category/icon4.png" width="75" alt="Feature" />
+                        <h4 class="mb-3">طرح الاستفسارات</h4>
+                        <p class="mb-0 fw-medium text-secondary">يتيح التطبيق دردشة آلية تجيب عن جميع اسئلة و استفسارات المستخدمين</p>
+                    </div>
+                </div>
+                <div class="text-center"><a class="btn btn-warning"  asp-page="/Association/Sign_up" role="button" style=" border-color: white; background-color:  #b84343; color: white; ">سجل الآن</a></div>
+            </div><!-- end of .container-->
+        </section>
+
+
+
+
+
+
+<section class="pt-5" id="asso" dir="rtl">
+    <div class="container">
+        <h1 class="fs-9 fw-bold mb-4 text-center">الجمعيات:<br class="d-none d-xl-block" /> </h1>
+        <h1 class="fw-bold fs-6 mb-4"></h1>
+        <p class="mb-5 text-secondary"></p>
+        <div class="row gx-4">
+            <div class="row gx-4">
+    @foreach (var association in Model.Associations)
+    {
+        <div class="col-md-4 mb-4">
+            <a  style="text-decoration-line: none;"  asp-page="/Association/AssociationDetailsModel" asp-route-id="@association.Id"  class="card-link" >
+                <div class="card border-0 shadow-sm">
+                    <img class="card-img-top" src="@association.ProfileImagePath" alt="Profile Image" style="width: 335px; height: 200px;">
+                    <div class="card-body">
+                        <p class="card-text" style="color: #000; font-size: 25px;">@association.Nom</p>
+                        <p class="card-text text-secondary"></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+
+        </div>
+    </div><!-- end of .container-->
+</section>
+
+
+
+
+ <section class="pt-5" id="post" dir="rtl">
+          <div class="container">
+              <h1 class="fw-bold fs-6 mb-3">أحدث المنشورات</h1>
+              <p class="mb-6 text-secondary"></p>
+              <div class="row">
+                @foreach (var post in Model.Posts)
+            {
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                               
+                                    <img style="width: 230px; height: 220px;" class="card-img-top" src="@post.ImagePath" alt="@post.Title">
+                               
+                                <div class="card-body ps-0">
+                                    <p style="font-size: 12px;" class="text-secondary">بواسطة <a class="fw-bold text-decoration-none me-1" >@post.AssociationName</a> | <span class="ms-1">@post.CreatedAt</span></p>
+                                    <h6 class="fw-bold">@post.Title</h6>
+                                </div>
+                            </div>
+                        </div>
+                      }
+            </div>
+            
+          </div><!-- end of .container-->
+      </section>
+      
+
+
+
+
+
+
+
+
+
+       
+
+            <section class="py-md-11 py-8" id="chatbot">
+
+
+
+          <!--/.bg-holder-->
+  
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-6 text-center">
+                <h1 class="fw-bold mb-4 fs-7">عندك استفسارات ؟</h1>
+                <p class="mb-5 text-info fw-medium">يمكنك التواصل مع الدردشة الآلية </p>
+                <a asp-page="/Chatbot/ChatbotModel">
+                <button class="btn btn-warning btn-md" style="background-color: #b84343 ; border: #b84343;" >هنا</button></a>
+              </div>
+            </div>
+          </div><!-- end of .container-->
+  
+        </section>
+      
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+    </main>
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="text-center py-0">
+
+        <div class="container">
+          <div class="container border-top py-3">
+            <div class="row justify-content-between">
+              <div class="col-12 col-md-auto mb-1 mb-md-0">
+                <p class="mb-0"> 2024 MIAG ISCAE &copy; </p>
+              </div>
+              <div class="col-12 col-md-auto">
+                    </div>
+            </div>
+          </div>
+        </div><!-- end of .container-->
+
+      </section>
+
+
+
+
+
+    <!-- Scripts -->
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/theme.js"></script>
+
+   
+    <script  src="~/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Volkhov:wght@700&amp;display=swap" rel="stylesheet">
+ 
+</body>
+
+</html>

@@ -1,0 +1,190 @@
+@page
+@model KheyrkoumProjet.Pages.Chatbot.ChatbotModel
+@{
+    ViewData["Title"] = "Chatbot";
+}
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>خيركم</title>
+    <link href="~/css/theme.css" rel="stylesheet" />
+   <style>
+
+
+
+        .co {
+            width: 60%;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            color: #333333;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: calc(100% - 110px);
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #b84343; 
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #b84343; 
+        }
+        .chat-co {
+            overflow: hidden;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .user,
+        .bot {
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            max-width: 70%;
+        }
+        .user {
+            background-color: #f9f9f9;
+            float: right;
+            clear: both;
+            text-align: right;
+        }
+        .bot {
+            background-color: #b84343; 
+            color: white;
+            float: left;
+            clear: both;
+            text-align: left;
+        }
+
+    
+    
+.circle-background {
+    position: relative;
+    background: linear-gradient(to bottom right, rgba(168, 143, 96, 0.253), rgba(255, 165, 0, 0.1)); /* Orange gradient from top left to bottom right */
+}
+
+.semi-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    z-index: -1; /* Ensure the semi-circle is behind other content */
+    clip-path: polygon(0% 100%, 100% 100%, 100% 70%, 50% 0%, 0% 70%); /* Create a semi-circle shape using clip-path */
+}
+
+  body a:hover {
+    color: #000;
+  }
+
+  .nav-link a:hover {
+    color: #000;
+  }
+
+  </style>
+</head>
+<body>
+    <main class="main" id="top" dir="rtl">
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top" data-navbar-on-scroll="data-navbar-on-scroll">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="~/img/logok.png" height="90" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/">تعريف</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/">الجمعيات</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/">المنشورات</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/chatbot">الدردشة الآ لية</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex ms-lg-4">
+                        <a class="btn btn-secondary-outline" asp-page="/Association/Login">تسجيل الدخول</a>
+                        <a class="btn btn-warning" asp-page="/Association/Sign_up" style="margin-right: 10px; background-color: #b84343; border-color: #b84343;">التسجيل</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div><p style="font-size: 60px; color: white;">......</p></div>
+        <div class="co" style="text-align: right;">
+            <h4 style="text-align: right;">
+                <div class="chat-co" style="text-align: right;">
+                    @if (Model.Response != null)
+                    {
+                        <div class="bot" style="text-align: right;">@Model.Response</div>
+                    }
+                    else
+                    {
+                        <p>مرحبا, كيف يمكنني مساعدتك</p>
+                    }
+                </div>
+            </h4>
+            <form method="post" style="text-align: right;">
+                @Html.AntiForgeryToken()
+                <label for="query"></label>
+                <input type="text" id="query" name="query" value="@Model.Query">
+                <input style="
+    margin-right: 4px;
+     margin-top: 4px;
+    
+    margin-left: 4px;" type="submit" value="إرسال">
+            </form>
+        </div>
+        <div><p style="font-size: 100px; color: white;">.......</p></div>
+    </main>
+
+    <section class="text-center py-0">
+        <div class="container">
+            <div class="container border-top py-3">
+                <div class="row justify-content-between">
+                    <div class="col-12 col-md-auto mb-1 mb-md-0">
+                        <p class="mb-0">2024 MIAG ISCAE &copy;</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="~/js/theme.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Volkhov:wght@700&display=swap" rel="stylesheet">
+</body>
+</html>
